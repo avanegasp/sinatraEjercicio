@@ -9,15 +9,12 @@
 # end
 
 
-require 'sinatra' 
+require 'sinatra'
+
 get '/' do
-unless params[:nombre]
-  <<-HTML
-    <h1>Hola desconocido!</h1>
-  HTML
-else
-  <<-HTML
-    <h1>Hola #{params[:nombre]}#{"!"}</h1>
-  HTML
-end
+  unless params[:nombre] != nil && params[:nombre].capitalize == "Juan"
+    "Hola desconocido!"
+  else
+    "<h1>Hola #{params[:nombre]}</h1>"
+  end
 end
